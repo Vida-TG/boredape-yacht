@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/Homepage';
-import CreateTask from './pages/CreateTask';
-import EditTask from './pages/EditTask';
+import CreateEvent from './pages/CreateEvent';
+import EditEvent from './pages/EditEvent';
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
       </nav>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/new-event' element={<CreateTask />} />
-        <Route path='/:id' element={<EditTask />} />
+        <Route path='/new-event' element={<CreateEvent />} />
+        <Route path='/:id' element={<EditEvent />} />
       </Routes>
     </BrowserRouter>
   );

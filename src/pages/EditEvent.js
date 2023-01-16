@@ -1,35 +1,41 @@
-import { useState } from "react";
-import supabase from "../config/SupabaseConfig"
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
-const CreateTask = () => {
+import supabase from "../config/SupabaseConfig"
+
+const EditEvent = () => {
     const [ name, setName ] = useState("")
     const [ description, setDescription ] = useState("")
     const [ rating, setRating ] = useState("")
     const [ formErrors, setFormErrors ] = useState(null)
-    
-    const navigate = useNavigate();
-    const handleCreateTask = async (e) => {
-        e.preventDefault();
 
-        if (!name || !description || !rating ) {
-            setFormErrors("All fields are compulsory")
-            return
-        }
+    const { id } = useParams()
 
-        const { error } = await supabase
-            .from('events')
-            .insert({name, description, rating})
+    const handleEditEvent = () => {
         
-        if (error) {
-            setFormErrors("An error occured")
-        }
-        navigate('/')
     }
 
+    useEffect(() => {
+        const addInfo = async () => {
+            const { data, error } = await supabase
+                .from('events')
+                .select()
+                .eq('id', id)
+                .single()
+            
+            if (data) {
+                setName(data.name)
+                setDescription(data.description)
+                setRating(data.rating)
+            }
+        }
+
+        addInfo();
+    }, [])
+
     return (
-        <div className="page create">
-            <form onSubmit={handleCreateTask}>
+        <div className="page edit">
+            <form onSubmit={handleEditEvent}>
                 <label htmlFor="name">Event Name:</label>
                 <input 
                 type="text" 
@@ -53,7 +59,7 @@ const CreateTask = () => {
                 onChange={(e) => setRating(e.target.value)}
                 />
 
-                <button>Create Event</button>
+                <button>Edit Event</button>
 
                 { formErrors && <p className="error">{formErrors}</p> }
             </form>
@@ -61,4 +67,4 @@ const CreateTask = () => {
     )
 }
 
-export default CreateTask;
+export default EditEvent;
