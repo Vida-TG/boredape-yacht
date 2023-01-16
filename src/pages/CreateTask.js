@@ -1,13 +1,26 @@
 import { useState } from "react";
+import supabase from "../config/SupabaseConfig"
+import { useNavigate } from "react-router-dom"
 
 const CreateTask = () => {
     const [ name, setName ] = useState("")
     const [ description, setDescription ] = useState("")
     const [ rating, setRating ] = useState("")
     const [ formErrors, setFormErrors ] = useState(null)
+    
+    const navigate = useNavigate();
+    const handleCreateTask = async (e) => {
+        e.preventDefault();
 
-    const handleCreateTask = () => {
+        if (!name || !description || !rating ) {
+            setFormErrors("All fields are compulsory")
+            return
+        }
 
+        const { data, error } = await supabase
+            .from('events')
+            .insert({name, description, rating})
+        navigate('/')
     }
 
     return (
@@ -21,7 +34,7 @@ const CreateTask = () => {
                 onChange={(e) => setName(e.target.value)}
                 />
                 
-                <label htmlFor="description">Method:</label>
+                <label htmlFor="description">Description:</label>
                 <textarea 
                 id="description"
                 value={description}
@@ -36,7 +49,7 @@ const CreateTask = () => {
                 onChange={(e) => setRating(e.target.value)}
                 />
 
-                <button>Create Smoothie Recipe</button>
+                <button>Create Event</button>
 
                 { formErrors && <p className="error">{formErrors}</p> }
             </form>
