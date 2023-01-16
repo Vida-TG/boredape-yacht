@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const CreateTask = () => {
-    const [ name, setName ] useState(null)
-    const [ description, setDescription ] useState(null)
-    const [ rating, setRating ] useState(null)
+    const [ name, setName ] = useState(null)
+    const [ description, setDescription ] = useState(null)
+    const [ rating, setRating ] = useState(null)
 
     const handleCreateTask = () => {
 
@@ -11,7 +11,7 @@ const CreateTask = () => {
 
     return (
         <div className="page create">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleCreateTask}>
                 <label htmlFor="name">Event Name:</label>
                 <input 
                 type="text" 
