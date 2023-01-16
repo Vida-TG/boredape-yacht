@@ -12,7 +12,7 @@ const EditEvent = () => {
     const { id } = useParams()
     const navigate = useNavigate()
 
-    const handleEditEvent = () => {
+    const handleEditEvent = async (e) => {
         e.preventDefault()
         
         if (!name || !description || !rating ) {
