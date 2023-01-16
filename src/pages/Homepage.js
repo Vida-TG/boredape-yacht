@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import supabase from "../config/SupabaseConfig"
 
+import EventCard from "../components/EventCard"
+
 
 const HomePage = () => {
 
@@ -22,13 +24,14 @@ const HomePage = () => {
         }
 
         fetchEvents()
-        console.log("dwndwnk")
     }, [])
     
     return (
         <div className="page home">
             { fetchError && (<p>{fetchError}</p>) }
-            { events && events.map((event) => <div key="{event.id}">{event.name}</div>)}
+            <div className="event-grid">
+                { events && events.map((event) => <EventCard key={event.id} event={event} />)}
+            </div>
         </div>
     )
 }
