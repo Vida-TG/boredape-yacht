@@ -17,9 +17,13 @@ const CreateTask = () => {
             return
         }
 
-        const { data, error } = await supabase
+        const { error } = await supabase
             .from('events')
             .insert({name, description, rating})
+        
+        if (error) {
+            setFormErrors("An error occured")
+        }
         navigate('/')
     }
 

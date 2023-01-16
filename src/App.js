@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/Homepage';
 import CreateTask from './pages/CreateTask';
+import EditTask from './pages/EditTask';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/new-event' element={<CreateTask />} />
+        <Route path='/:id' element={<EditTask />} />
       </Routes>
     </BrowserRouter>
   );
