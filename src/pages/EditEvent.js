@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 import supabase from "../config/SupabaseConfig"
 
@@ -10,9 +10,25 @@ const EditEvent = () => {
     const [ formErrors, setFormErrors ] = useState(null)
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
     const handleEditEvent = () => {
+        e.preventDefault()
         
+        if (!name || !description || !rating ) {
+            setFormErrors("All fields are compulsory")
+            return
+        }
+        const { error } = await supabase
+            .from('events')
+            .update({name, description, rating})
+            .eq("id", id)
+            
+        if (error) {
+            setFormErrors("Error updating event")
+            return
+        }
+        navigate('/')
     }
 
     useEffect(() => {
@@ -27,6 +43,9 @@ const EditEvent = () => {
                 setName(data.name)
                 setDescription(data.description)
                 setRating(data.rating)
+            }
+            if (error){
+                setFormErrors("An error occured while trying to get event")
             }
         }
 
