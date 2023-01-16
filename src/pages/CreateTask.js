@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 const CreateTask = () => {
-    const [ name, setName ] = useState(null)
-    const [ description, setDescription ] = useState(null)
-    const [ rating, setRating ] = useState(null)
+    const [ name, setName ] = useState("")
+    const [ description, setDescription ] = useState("")
+    const [ rating, setRating ] = useState("")
+    const [ formErrors, setFormErrors ] = useState(null)
 
     const handleCreateTask = () => {
 
@@ -35,6 +36,9 @@ const CreateTask = () => {
                 onChange={(e) => setRating(e.target.value)}
                 />
 
+                <button>Create Smoothie Recipe</button>
+
+                { formErrors && <p className="error">{formErrors}</p> }
             </form>
         </div>
     )
