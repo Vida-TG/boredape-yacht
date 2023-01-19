@@ -45,7 +45,7 @@ const EditEvent = () => {
                 setRating(data.rating)
             }
             if (error){
-                setFormErrors("An error occured while trying to get event")
+                setFormErrors("An error occured while trying to get this event")
             }
         }
 

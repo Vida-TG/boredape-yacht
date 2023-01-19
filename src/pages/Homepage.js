@@ -28,7 +28,7 @@ const HomePage = () => {
     
     return (
         <div className="page home">
-            { fetchError && (<p>{fetchError}</p>) }
+            { fetchError && (<h3>{fetchError}</h3>) }
             <div className="event-grid">
                 { events && events.map((event) => <EventCard key={event.id} event={event} onDeleted={fetchEvents}/>)}
             </div>
