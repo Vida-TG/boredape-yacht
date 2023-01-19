@@ -15,7 +15,6 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/new-event' element={<CreateEvent />} />
         <Route path='/:id' element={<EditEvent />} />
-        <Route path='/auth/register' />
       </Routes>
     </BrowserRouter>
   );
