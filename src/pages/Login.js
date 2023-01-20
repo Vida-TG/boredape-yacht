@@ -13,6 +13,14 @@ const Login = () => {
     })
 
     return (
+        <div className="App">
+            <Auth
+                supabaseClient={supabase}
+                appearance={{theme: ThemeSupa}}
+                theme="dark"
+                providers={["discord"]}
+            />
+        </div>
     )
 }
 
