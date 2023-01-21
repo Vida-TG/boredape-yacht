@@ -14,7 +14,6 @@ const Success = () => {
                 }
             })
         }
-
         getUserData();
     }, []);
 }
