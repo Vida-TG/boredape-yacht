@@ -6,6 +6,11 @@ const Success = () => {
     const navigate = useNavigate()
     const [ user, setUser ] = useState({})
 
+    const logout = async () => {
+        const {error} = await supabase.auth.signOut();
+        navigate("/")
+    }
+
     useEffect(() => {
         const getUserData = async () => {
             await supabase.auth.getUser().then((value) => {
@@ -16,6 +21,23 @@ const Success = () => {
         }
         getUserData();
     }, []);
+
+    return (
+        <div>
+            { Object.keys(user).length !== 0 ?
+
+                <>
+                    <h1>Logged In</h1>
+                    <button onClick={() => logout()}>Sign Out</button>
+                </>
+                :
+                <>
+                    User is not logged in
+                </>
+            
+            }
+        </div>
+    )
 }
 
 export default Success;
