@@ -1,6 +1,7 @@
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react"
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../config/SupabaseConfig";
+import supabase from "../config/SupabaseConfig";
+
 
 const Login = () => {
     const navigate = useNavigate()
@@ -8,7 +9,7 @@ const Login = () => {
         if (e !== "SIGNED_OUT") {
             navigate("/success")
         } else {
-            navigate("/success")
+            navigate("/")
         }
     })
 
