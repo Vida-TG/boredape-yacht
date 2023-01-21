@@ -7,7 +7,13 @@ const Success = () => {
     const [ user, setUser ] = useState({})
 
     useEffect(() => {
-        
+        const getUserData = async () => {
+            await supabase.auth.getUser().then((value) => {
+                if(value.data?.user){
+                    setUser(value.data.user);
+                }
+            })
+        }
 
         getUserData();
     }, []);
