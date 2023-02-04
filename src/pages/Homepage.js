@@ -15,7 +15,7 @@ const HomePage = () => {
             .select()
 
         if (error){
-            setFetchError("Error getting all events")
+            setFetchError("Error getting events")
         }
         if (data){
             setEvents(data)
