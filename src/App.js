@@ -13,7 +13,7 @@ function App() {
       <nav className="App-header">
         <Link to="/" >Home</Link>
         <Link to="/new-event" >New Event</Link>
-        <Link to="/login" >Log In</Link>
+        <Link to="/login-page" >Log In</Link>
       </nav>
       <Routes>
         <Route path='/' element={<HomePage />} />
