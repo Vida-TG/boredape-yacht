@@ -3,9 +3,9 @@ import supabase from "../config/SupabaseConfig"
 import { useNavigate } from "react-router-dom"
 
 const CreateEvent = () => {
-    const [ name, setName ] = useState("Evnt 1")
-    const [ description, setDescription ] = useState("Deesc")
-    const [ rating, setRating ] = useState("1")
+    const [ name, setName ] = useState("Event")
+    const [ description, setDescription ] = useState("Event Description")
+    const [ rating, setRating ] = useState("")
     const [ formErrors, setFormErrors ] = useState(null)
     
     const navigate = useNavigate();
