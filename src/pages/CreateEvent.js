@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 const CreateEvent = () => {
     const [ name, setName ] = useState("")
-    const [ description, setDescription ] = useState("")
+    const [ description, setDescription ] = useState("true")
     const [ rating, setRating ] = useState("")
     const [ formErrors, setFormErrors ] = useState(null)
     
