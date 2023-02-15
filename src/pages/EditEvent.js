@@ -5,8 +5,8 @@ import supabase from "../config/SupabaseConfig"
 
 const EditEvent = () => {
     const [ name, setName ] = useState("")
-    const [ description, setDescription ] = useState("")
-    const [ rating, setRating ] = useState("")
+    const [ description, setDescription ] = useState("j")
+    const [ rating, setRating ] = useState("8")
     const [ formErrors, setFormErrors ] = useState(null)
 
     const { id } = useParams()
