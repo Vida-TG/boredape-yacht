@@ -13,7 +13,7 @@ const CreateEvent = () => {
         e.preventDefault();
 
         if (!name || !description || !rating ) {
-            setFormErrors("All fields are compulsory")
+            setFormErrors("All Fields Are Compulsory")
             return
         }
 
@@ -22,7 +22,7 @@ const CreateEvent = () => {
             .insert({name, description, rating})
         
         if (error) {
-            setFormErrors("An error occured")
+            setFormErrors("An Error Occured")
             return
         }
         navigate('/')

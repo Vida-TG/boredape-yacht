@@ -12,8 +12,8 @@ function App() {
     <BrowserRouter className="App">
       <nav className="App-header">
         <Link to="/" >Home</Link>
-        <Link to="/new-event" >New Event</Link>
-        <Link to="/login" >Log In</Link>
+        <Link to="/new-event" >Add New Event</Link>
+        <Link to="/login" >Login</Link>
       </nav>
       <Routes>
         <Route path='/' element={<HomePage />} />
