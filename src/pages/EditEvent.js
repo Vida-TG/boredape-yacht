@@ -45,7 +45,7 @@ const EditEvent = () => {
                 setRating(data.rating)
             }
             if (error){
-                setFormErrors("An error occured while getting this event")
+                setFormErrors("An error occured while getting event")
             }
         }
 
@@ -63,7 +63,7 @@ const EditEvent = () => {
                 onChange={(e) => setName(e.target.value)}
                 />
                 
-                <label htmlFor="description">Description:</label>
+                <label htmlFor="description">Full Description:</label>
                 <textarea 
                 id="description"
                 value={description}
