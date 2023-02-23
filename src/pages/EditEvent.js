@@ -25,7 +25,7 @@ const EditEvent = () => {
             .eq("id", id)
             
         if (error) {
-            setFormErrors("Error updating event")
+            setFormErrors("There was an error updating event")
             return
         }
         navigate('/')
@@ -45,7 +45,7 @@ const EditEvent = () => {
                 setRating(data.rating)
             }
             if (error){
-                setFormErrors("An error occured while trying to get this event")
+                setFormErrors("An error occured while getting this event")
             }
         }
 
