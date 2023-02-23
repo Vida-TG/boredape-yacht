@@ -63,7 +63,7 @@ const EditEvent = () => {
                 onChange={(e) => setName(e.target.value)}
                 />
                 
-                <label htmlFor="description">Full Description:</label>
+                <label htmlFor="description">Description:</label>
                 <textarea 
                 id="description"
                 value={description}
