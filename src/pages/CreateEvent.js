@@ -22,7 +22,7 @@ const CreateEvent = () => {
             .insert({name, description, rating})
         
         if (error) {
-            setFormErrors("An Error Occured")
+            setFormErrors("Sorry An Error Occured")
             return
         }
         navigate('/')

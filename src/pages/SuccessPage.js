@@ -27,7 +27,7 @@ const Success = () => {
             { Object.keys(user).length !== 0 ?
 
                 <>
-                    <h1>You're Logged In</h1>
+                    <h1>Logged In</h1>
                     <button onClick={() => logout()}>Sign Out</button>
                 </>
                 :
