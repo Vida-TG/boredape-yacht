@@ -32,7 +32,7 @@ const Success = () => {
                 </>
                 :
                 <>
-                    User Is Not Logged In
+                    User Logged Out
                 </>
             
             }
